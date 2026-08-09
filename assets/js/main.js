@@ -1,82 +1,57 @@
-// SHOW MENU
+/* ===== SHOW MENU ===== */
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
 
-const showMenu = (toggleId, navId) => {
-      const toggle = document.getElementById(toggleId),
-            nav = document.getElementById(navId)
-
-      if(toggle && nav){
-            toggle.addEventListener('click', () =>{
-                  nav.classList.toggle('show')
-            });
-      }
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    })
 }
 
-showMenu('nav_toggle','nav_menu')
+if(navClose){
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu')
+    })
+}
 
-// ACTIVE & REMOVE ACTIVE
-const navLink = document.querySelectorAll('.nav_link')
-navLink.forEach(n => n.classList.remove('active'))
+/* ===== REMOVE MENU MOBILE ===== */
+const navLink = document.querySelectorAll('.nav__link')
 
 function linkAction(){
-      navLink.forEach(n => n.classList.remove('active'))
-      this.classList.add('active')
-
-      const navMenu = document.getElementById('nav_menu')
-      navMenu.classList.remove('show')
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show-menu')
 }
-
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-// COPY TO CLIPBOARD FOR CONTACT DETAILS
-const copyButtons = document.querySelectorAll('.copy_btn');
+/* ===== SCROLL SECTIONS ACTIVE LINK ===== */
+const sections = document.querySelectorAll('section[id]')
 
-copyButtons.forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const value = btn.getAttribute('data-clipboard') || '';
+function scrollActive(){
+    const scrollY = window.pageYOffset
 
-    // Fallback to textarea copy if navigator.clipboard not available
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(value);
-      } else {
-        const textarea = document.createElement('textarea');
-        textarea.value = value;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-      }
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 100;
+        const sectionId = current.getAttribute('id')
+        const currentMenuLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
-      const prevTitle = btn.title;
-      btn.title = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.title = prevTitle;
-        btn.classList.remove('copied');
-      }, 2000);
-    } catch (err) {
-      btn.title = 'Copy failed';
-      setTimeout(() => (btn.title = 'Copy'), 2000);
-    }
-  });
-});
-
-// Reveal contact blocks one-by-one when they enter the viewport
-const contactBlocks = document.querySelectorAll('.contact_block');
-if (contactBlocks.length) {
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          obs.unobserve(entry.target);
+        if(currentMenuLink) {
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                currentMenuLink.classList.add('active-link')
+            }else{
+                currentMenuLink.classList.remove('active-link')
+            }
         }
-      });
-    }, { threshold: 0.15 });
-
-    contactBlocks.forEach(cb => observer.observe(cb));
-  } else {
-    // Fallback: reveal all immediately
-    contactBlocks.forEach(cb => cb.classList.add('in-view'));
-  }
+    })
 }
+window.addEventListener('scroll', scrollActive)
+
+/* ===== CHANGE BACKGROUND HEADER ===== */ 
+function scrollHeader(){
+    const nav = document.getElementById('header')
+    // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
+    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)

@@ -1,110 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudhakar Kalathi S | Java Developer</title>
     
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#0B1120',
+                        cardDark: '#1E293B',
+                        cardHover: '#334155',
+                        primary: '#3B82F6',
+                        textMain: '#F8FAFC',
+                        textMuted: '#94A3B8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B1120; color: #94A3B8; }
+        .modal { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal.active { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: scale(0.95); transition: transform 0.3s ease; }
+        .modal.active .modal-content { transform: scale(1); }
+        body.modal-open { overflow: hidden; }
+        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    </style>
 </head>
-<body class="dark-theme">
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav__container container">
-            <a href="#home" class="nav__logo">sudhakar<span class="accent">.dev</span></a>
-            <ul class="nav__list" id="nav-list">
-                <li><a href="#home" class="nav__link">Home</a></li>
-                <li><a href="#about" class="nav__link">About</a></li>
-                <li><a href="#projects" class="nav__link">Projects</a></li>
-                <li><a href="#skills" class="nav__link">Skills</a></li>
-                <li><a href="#experience" class="nav__link">Experience</a></li>
-                <li><a href="#contact" class="nav__link">Contact</a></li>
-                <li><a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="btn btn-outline btn-sm">Resume</a></li>
-            </ul>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="fa-solid fa-bars"></i>
+<body class="font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-40 glass-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="text-textMain font-mono font-bold text-xl tracking-tight">sudhakar<span class="text-primary">.dev</span></a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-sm font-mono hover:text-textMain transition-colors">01. About</a>
+                <a href="#projects" class="text-sm font-mono hover:text-textMain transition-colors">02. Projects</a>
+                <a href="#skills" class="text-sm font-mono hover:text-textMain transition-colors">03. Skills</a>
+                <a href="#experience" class="text-sm font-mono hover:text-textMain transition-colors">04. Experience</a>
+                <a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="px-4 py-2 border border-primary text-primary rounded hover:bg-primary/10 transition-colors font-mono text-sm">Resume</a>
             </div>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-textMain text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardDark border-b border-white/10 absolute w-full left-0 top-20 flex flex-col items-center py-6 space-y-6 shadow-2xl">
+            <a href="#about" class="text-lg font-mono text-textMain mobile-link">01. About</a>
+            <a href="#projects" class="text-lg font-mono text-textMain mobile-link">02. Projects</a>
+            <a href="#skills" class="text-lg font-mono text-textMain mobile-link">03. Skills</a>
+            <a href="#experience" class="text-lg font-mono text-textMain mobile-link">04. Experience</a>
+            <a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="px-6 py-2 border border-primary text-primary rounded font-mono mobile-link">Resume</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero section" id="home">
-        <div class="hero__container container">
-            <div class="hero__badge">OPEN TO SOFTWARE ENGINEERING ROLES · 2025 GRADUATE</div>
-            <h1 class="hero__name">Sudhakar Kalathi S</h1>
-            <h2 class="hero__title">Java Developer <span class="accent">&middot;</span> Backend & Full Stack</h2>
-            <p class="hero__description">
-                Computer Science Engineering graduate focused on building reliable backend systems and responsive full-stack applications using Java, Spring Boot, Spring Security, REST APIs, MySQL, and React.
-            </p>
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 w-full">
+            <div class="inline-block px-3 py-1 mb-6 text-xs font-mono text-primary bg-primary/10 rounded-full border border-primary/20">
+                OPEN TO SOFTWARE ENGINEERING ROLES &middot; 2025 GRADUATE
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-textMain tracking-tight mb-4">Sudhakar Kalathi S.</h1>
+            <h2 class="text-3xl md:text-5xl font-semibold text-textMuted mb-8">Java Developer <span class="text-primary">&middot;</span> Backend & Full Stack</h2>
             
-            <div class="hero__buttons">
-                <a href="#projects" class="btn btn-primary">View My Projects</a>
-                <a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="btn btn-outline">Download Resume</a>
-                <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-icon"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="btn btn-icon"><i class="fa-brands fa-linkedin"></i></a>
+            <p class="max-w-2xl text-lg md:text-xl text-textMuted mb-10 leading-relaxed">
+                Computer Science Engineering graduate focused on building reliable backend systems and responsive full-stack applications using <span class="text-textMain">Java, Spring Boot, REST APIs, MySQL,</span> and <span class="text-textMain">React</span>.
+            </p>
+
+            <div class="flex flex-wrap gap-4 items-center">
+                <a href="#projects" class="px-6 py-3 bg-textMain text-bgDark font-semibold rounded hover:bg-gray-200 transition-colors">View My Projects</a>
+                <a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="px-6 py-3 border border-white/20 text-textMain font-semibold rounded hover:bg-white/5 transition-colors"><i class="fa-solid fa-download mr-2"></i> Resume</a>
+                <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="p-3 border border-white/20 text-textMain rounded hover:bg-white/5 transition-colors text-xl"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="p-3 border border-white/20 text-textMain rounded hover:bg-white/5 transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
             </div>
 
-            <div class="hero__tech">
-                <span>Java 17</span> &middot; <span>Spring Boot 3</span> &middot; <span>Spring Security</span> &middot; <span>REST APIs</span> &middot; <span>MySQL</span> &middot; <span>React</span>
-            </div>
-
-            <div class="hero__stats">
-                <div class="stat__card">
-                    <span class="stat__title">2+</span>
-                    <span class="stat__desc">Enterprise-Style Systems</span>
+            <!-- Stats -->
+            <div class="mt-20 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl">
+                <div>
+                    <div class="text-3xl font-bold text-textMain">2+</div>
+                    <div class="text-sm font-mono text-textMuted uppercase tracking-wider mt-1">Enterprise Systems</div>
                 </div>
-                <div class="stat__card">
-                    <span class="stat__title">Java & Spring</span>
-                    <span class="stat__desc">Primary Development Stack</span>
+                <div>
+                    <div class="text-3xl font-bold text-textMain">Java/Spring</div>
+                    <div class="text-sm font-mono text-textMuted uppercase tracking-wider mt-1">Primary Stack</div>
                 </div>
-                <div class="stat__card">
-                    <span class="stat__title">2025</span>
-                    <span class="stat__desc">CSE Graduate</span>
+                <div>
+                    <div class="text-3xl font-bold text-textMain">2025</div>
+                    <div class="text-sm font-mono text-textMuted uppercase tracking-wider mt-1">CSE Graduate</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">01. Who I Am</h2>
-                <div class="section__line"></div>
+    <section id="about" class="py-24 bg-cardDark/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-textMain font-mono">01. Who I Am</h2>
+                <div class="h-px bg-white/10 flex-grow"></div>
             </div>
-            
-            <div class="about__content">
-                <div class="about__text">
-                    <p>I'm Sudhakar, a Computer Science Engineering graduate who enjoys turning complex logic into working software. My primary focus is <strong>Java backend development</strong>, with hands-on experience building full-stack applications using Spring Boot, REST APIs, MySQL, and React.</p>
-                    <p>I enjoy understanding how systems work behind the UI—from JWT authentication and API design to database relationships and role-based access control. I'm currently looking for an entry-level <strong>Software Engineer / Java Developer</strong> opportunity where I can contribute to real-world systems, learn from experienced engineers, and grow into a strong backend-focused developer.</p>
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <p class="text-lg leading-relaxed mb-6">
+                        I'm Sudhakar, a Computer Science Engineering graduate who enjoys turning complex logic into working software. My primary focus is <strong class="text-textMain font-semibold">Java backend development</strong>, with hands-on experience building full-stack applications.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6">
+                        I enjoy understanding how systems work behind the UI—from JWT authentication and API design to database relationships and role-based access control. I'm currently looking for an entry-level <strong class="text-textMain font-semibold">Software Engineer / Java Developer</strong> opportunity where I can contribute to real-world systems and learn from experienced engineers.
+                    </p>
                 </div>
                 
-                <h3 class="about__subtitle mt-3">How I Work</h3>
-                <div class="about__grid">
-                    <div class="about__card">
-                        <i class="fa-solid fa-bullseye about__icon"></i>
-                        <h4>Build with purpose</h4>
-                        <p>I focus on solving the actual problem rather than adding unnecessary complexity. Clean, functional code over over-engineering.</p>
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-textMain font-mono mb-4">How I Work</h3>
+                    <div class="bg-cardDark p-6 rounded-lg border border-white/5">
+                        <h4 class="text-textMain font-bold mb-2 flex items-center gap-2"><i class="fa-solid fa-server text-primary"></i> Backend First</h4>
+                        <p class="text-sm">I care deeply about clean REST APIs, secure business logic (RBAC, JWT), scalable database design, and maintainable architecture.</p>
                     </div>
-                    <div class="about__card">
-                        <i class="fa-solid fa-server about__icon"></i>
-                        <h4>Backend first</h4>
-                        <p>I care deeply about clean REST APIs, secure business logic (RBAC, JWT), scalable database design, and maintainable architecture.</p>
-                    </div>
-                    <div class="about__card">
-                        <i class="fa-solid fa-laptop-code about__icon"></i>
-                        <h4>Learn by building</h4>
-                        <p>My strongest learning comes from turning theoretical concepts into working applications and resolving real-world bottlenecks.</p>
+                    <div class="bg-cardDark p-6 rounded-lg border border-white/5">
+                        <h4 class="text-textMain font-bold mb-2 flex items-center gap-2"><i class="fa-solid fa-bullseye text-primary"></i> Build With Purpose</h4>
+                        <p class="text-sm">I focus on solving the actual problem rather than adding unnecessary complexity. Clean, functional code over over-engineering.</p>
                     </div>
                 </div>
             </div>
@@ -112,51 +147,51 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects section" id="projects">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">02. Featured Projects</h2>
-                <div class="section__line"></div>
+    <section id="projects" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-textMain font-mono">02. Featured Projects</h2>
+                <div class="h-px bg-white/10 flex-grow"></div>
             </div>
-            
-            <div class="projects__grid">
+
+            <div class="grid md:grid-cols-2 gap-8">
                 
                 <!-- Project 1: Chit Fund -->
-                <div class="project__card" onclick="openModal('modal-chitfund')">
-                    <div class="project__image">
-                        <img src="assets/img/chit-fund.png" alt="Chit Fund Management System">
-                        <div class="project__overlay">
-                            <span>View Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                <div class="bg-cardDark rounded-xl border border-white/10 overflow-hidden hover:-translate-y-2 transition-transform duration-300 cursor-pointer group flex flex-col h-full" onclick="openModal('modal-chitfund')">
+                    <div class="relative h-64 overflow-hidden bg-black">
+                        <img src="assets/img/chit-fund.png" alt="Chit Fund Dashboard" class="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-bgDark/90 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 flex gap-2">
+                            <span class="px-2 py-1 bg-primary/20 text-primary border border-primary/30 text-xs font-mono rounded">REST API</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary border border-primary/30 text-xs font-mono rounded">RBAC</span>
                         </div>
                     </div>
-                    <div class="project__info">
-                        <h3>SaaS Chit Fund Management System</h3>
-                        <p class="project__tech-line">Java &middot; Spring Boot &middot; Spring Security &middot; MySQL &middot; React</p>
-                        <p class="project__desc">A production-style full-stack financial platform for managing chit groups, enrollments, and payment tracking with stateless JWT authentication.</p>
-                        <div class="project__highlights">
-                            <span class="highlight">REST API</span>
-                            <span class="highlight">RBAC Security</span>
-                            <span class="highlight">Query Optimization</span>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-textMain mb-2 group-hover:text-primary transition-colors">SaaS Chit Fund Management System</h3>
+                        <p class="text-xs font-mono text-primary mb-4">Java &middot; Spring Boot &middot; Spring Security &middot; MySQL &middot; React</p>
+                        <p class="text-sm leading-relaxed flex-grow">A production-style full-stack financial platform for managing chit groups, enrollments, and payment tracking with stateless JWT authentication.</p>
+                        <div class="mt-6 flex items-center text-textMain font-mono text-sm font-semibold">
+                            View Case Study <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2: LearnSphere -->
-                <div class="project__card" onclick="openModal('modal-learnsphere')">
-                    <div class="project__image">
-                        <img src="assets/img/e-learning.png" alt="LearnSphere E-Learning Platform">
-                        <div class="project__overlay">
-                            <span>View Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                <div class="bg-cardDark rounded-xl border border-white/10 overflow-hidden hover:-translate-y-2 transition-transform duration-300 cursor-pointer group flex flex-col h-full" onclick="openModal('modal-learnsphere')">
+                    <div class="relative h-64 overflow-hidden bg-black">
+                        <img src="assets/img/e-learning.png" alt="LearnSphere Dashboard" class="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-bgDark/90 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 flex gap-2">
+                            <span class="px-2 py-1 bg-primary/20 text-primary border border-primary/30 text-xs font-mono rounded">Layered Arch</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary border border-primary/30 text-xs font-mono rounded">SPA</span>
                         </div>
                     </div>
-                    <div class="project__info">
-                        <h3>LearnSphere Enterprise E-Learning</h3>
-                        <p class="project__tech-line">Java &middot; Spring Boot &middot; JWT &middot; MySQL &middot; JavaScript</p>
-                        <p class="project__desc">A full-stack learning platform featuring three role-based portals (Admin, Instructor, Student) to manage courses, enrollments, and quizzes.</p>
-                        <div class="project__highlights">
-                            <span class="highlight">Layered Architecture</span>
-                            <span class="highlight">Stateless Auth</span>
-                            <span class="highlight">SPA Frontend</span>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-textMain mb-2 group-hover:text-primary transition-colors">LearnSphere Enterprise E-Learning</h3>
+                        <p class="text-xs font-mono text-primary mb-4">Java &middot; Spring Boot &middot; JWT &middot; MySQL &middot; JavaScript</p>
+                        <p class="text-sm leading-relaxed flex-grow">A full-stack learning platform featuring three role-based portals (Admin, Instructor, Student) to manage courses, enrollments, and quizzes.</p>
+                        <div class="mt-6 flex items-center text-textMain font-mono text-sm font-semibold">
+                            View Case Study <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
                         </div>
                     </div>
                 </div>
@@ -166,249 +201,344 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills section" id="skills">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">03. Engineering Focus</h2>
-                <div class="section__line"></div>
+    <section id="skills" class="py-24 bg-cardDark/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-textMain font-mono">03. Engineering Focus</h2>
+                <div class="h-px bg-white/10 flex-grow"></div>
             </div>
-            
-            <div class="skills__grid">
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Fundamentals -->
-                <div class="skills__card full-width">
-                    <h3 class="skills__category"><i class="fa-solid fa-gears"></i> Engineering Fundamentals</h3>
-                    <div class="skills__list fundamentals">
-                        <div class="skill__item">
-                            <strong>Object-Oriented Programming:</strong> Encapsulation &middot; Inheritance &middot; Abstraction &middot; Polymorphism
+                <div class="col-span-full lg:col-span-2 bg-cardDark p-8 rounded-xl border border-white/5">
+                    <h3 class="text-xl font-bold text-textMain mb-6 flex items-center gap-3"><i class="fa-solid fa-gears text-primary"></i> Engineering Fundamentals</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <strong class="text-textMain block mb-1">Object-Oriented Programming</strong>
+                            <p class="text-sm">Encapsulation, Inheritance, Abstraction, Polymorphism</p>
                         </div>
-                        <div class="skill__item">
-                            <strong>Backend Development:</strong> REST APIs &middot; MVC Layered Architecture &middot; Exception Handling &middot; DTO Pattern
+                        <div>
+                            <strong class="text-textMain block mb-1">Backend Architecture</strong>
+                            <p class="text-sm">REST APIs, MVC Layered Architecture, DTO Pattern</p>
                         </div>
-                        <div class="skill__item">
-                            <strong>Database Design:</strong> SQL &middot; Joins &middot; Relationships &middot; Normalization &middot; Transactions &middot; N+1 Query Resolution
+                        <div>
+                            <strong class="text-textMain block mb-1">Database Design</strong>
+                            <p class="text-sm">SQL, Joins, Relationships, Normalization, N+1 Query Resolution</p>
                         </div>
-                        <div class="skill__item">
-                            <strong>Security:</strong> Stateless Authentication (JWT) &middot; Role-Based Access Control (RBAC) &middot; Spring Security
+                        <div>
+                            <strong class="text-textMain block mb-1">Security</strong>
+                            <p class="text-sm">Stateless Auth (JWT), RBAC, Spring Security</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tech Stack -->
-                <div class="skills__card">
-                    <h3 class="skills__category"><i class="fa-solid fa-code"></i> Languages</h3>
-                    <div class="skills__tags">
-                        <span>Java</span>
-                        <span>JavaScript</span>
-                        <span>C++</span>
-                        <span>SQL</span>
+                <!-- Languages & Backend -->
+                <div class="bg-cardDark p-8 rounded-xl border border-white/5 space-y-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-textMain mb-4 flex items-center gap-3"><i class="fa-solid fa-code text-primary"></i> Languages</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">Java</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">JavaScript</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">C++</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">SQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-textMain mb-4 flex items-center gap-3"><i class="fa-solid fa-server text-primary"></i> Backend & DB</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">Spring Boot</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">Spring Data JPA</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">REST APIs</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">MySQL</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skills__card">
-                    <h3 class="skills__category"><i class="fa-solid fa-server"></i> Backend</h3>
-                    <div class="skills__tags">
-                        <span>Spring Boot 3</span>
-                        <span>Spring Security</span>
-                        <span>Spring Data JPA</span>
-                        <span>Hibernate</span>
-                        <span>REST APIs</span>
-                        <span>JWT</span>
+                <!-- Frontend & Tools -->
+                <div class="bg-cardDark p-8 rounded-xl border border-white/5 space-y-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-textMain mb-4 flex items-center gap-3"><i class="fa-solid fa-laptop-code text-primary"></i> Frontend</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">React</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">HTML5</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">CSS3</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="skills__card">
-                    <h3 class="skills__category"><i class="fa-solid fa-database"></i> Database</h3>
-                    <div class="skills__tags">
-                        <span>MySQL</span>
-                        <span>Relational Modeling</span>
-                    </div>
-                </div>
-
-                <div class="skills__card">
-                    <h3 class="skills__category"><i class="fa-solid fa-laptop-code"></i> Frontend</h3>
-                    <div class="skills__tags">
-                        <span>React</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript (DOM)</span>
-                    </div>
-                </div>
-
-                <div class="skills__card">
-                    <h3 class="skills__category"><i class="fa-solid fa-toolbox"></i> Tools & Practices</h3>
-                    <div class="skills__tags">
-                        <span>Git & GitHub</span>
-                        <span>Maven</span>
-                        <span>Postman</span>
-                        <span>Cloudflare Tunnels</span>
-                        <span>Debugging</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-textMain mb-4 flex items-center gap-3"><i class="fa-solid fa-toolbox text-primary"></i> Tools</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">Git & GitHub</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">Postman</span>
+                            <span class="px-3 py-1 bg-bgDark border border-white/10 rounded text-sm text-textMain">Maven</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience section" id="experience">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">04. Engineering Experience</h2>
-                <div class="section__line"></div>
+    <!-- Experience & Education -->
+    <section id="experience" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-textMain font-mono">04. Experience & Education</h2>
+                <div class="h-px bg-white/10 flex-grow"></div>
             </div>
-            
-            <div class="experience__timeline">
-                <div class="experience__item">
-                    <div class="experience__header">
+
+            <div class="max-w-4xl mx-auto space-y-12">
+                <!-- NSIC -->
+                <div class="relative pl-8 border-l-2 border-primary/30">
+                    <div class="absolute w-4 h-4 bg-bgDark border-2 border-primary rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
                         <div>
-                            <h3 class="experience__role">Web Developer Intern</h3>
-                            <span class="experience__company">National Small Industries Corporation (NSIC)</span>
+                            <h3 class="text-2xl font-bold text-textMain">Web Developer Intern</h3>
+                            <div class="text-lg text-textMuted font-mono">National Small Industries Corporation (NSIC)</div>
                         </div>
-                        <span class="experience__date">June 2023 – July 2023 | Chennai, TN</span>
+                        <div class="px-3 py-1 bg-cardDark border border-white/10 rounded-full text-xs font-mono text-primary whitespace-nowrap">
+                            Jun 2023 – Jul 2023
+                        </div>
                     </div>
-                    <ul class="experience__bullets">
+                    <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
                         <li>Built 5+ responsive web pages using HTML5, CSS3, and JavaScript, ensuring strict cross-browser compatibility.</li>
                         <li>Collaborated within a 4-member development team to deliver full-stack modules within tight project timelines.</li>
-                        <li>Restructured frontend components and streamlined backend integration points, successfully cutting UI-related defects by ~30% during testing.</li>
+                        <li>Restructured frontend components and streamlined backend integration points, cutting UI-related defects by ~30% during testing.</li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- Education -->
-            <div class="section__header mt-4">
-                <h2 class="section__title">05. Education</h2>
-                <div class="section__line"></div>
-            </div>
-            <div class="experience__timeline">
-                <div class="experience__item">
-                    <div class="experience__header">
+                <!-- Education -->
+                <div class="relative pl-8 border-l-2 border-primary/30">
+                    <div class="absolute w-4 h-4 bg-bgDark border-2 border-primary rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
                         <div>
-                            <h3 class="experience__role">B.E. Computer Science & Engineering</h3>
-                            <span class="experience__company">Sri Venkateswara College of Engineering (SVCE)</span>
+                            <h3 class="text-2xl font-bold text-textMain">B.E. Computer Science & Engineering</h3>
+                            <div class="text-lg text-textMuted font-mono">Sri Venkateswara College of Engineering (SVCE)</div>
                         </div>
-                        <span class="experience__date">2021 – 2025 | Chennai</span>
+                        <div class="px-3 py-1 bg-cardDark border border-white/10 rounded-full text-xs font-mono text-primary whitespace-nowrap">
+                            2021 – 2025
+                        </div>
                     </div>
-                    <ul class="experience__bullets">
-                        <li><strong>Certifications:</strong> Web Design (Udemy), Complete JavaScript Course (Udemy), Java (Great Learning).</li>
+                    <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                        <li><strong>Core Coursework:</strong> Data Structures, OOP, Database Management Systems, Software Engineering.</li>
+                        <li><strong>Certifications:</strong> Web Design (Udemy), JavaScript (Udemy), Java (Great Learning).</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="container contact__container">
-            <h2 class="contact__title">Let's Build Something</h2>
-            <p class="contact__text">
-                I'm currently looking for entry-level Software Engineer, Java Developer, and Backend Developer opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+    <!-- Contact -->
+    <section id="contact" class="py-32 bg-cardDark/30 text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-textMain mb-6">Let's Build Something.</h2>
+            <p class="text-lg mb-8 leading-relaxed">
+                I'm currently looking for entry-level Software Engineer and Java Backend Developer opportunities. Whether you have a question or just want to say hi, my inbox is open!
             </p>
-            <p class="contact__location"><i class="fa-solid fa-location-dot"></i> Based in Tamil Nadu, India &middot; Open to Chennai / Bangalore / Hyderabad</p>
+            <p class="font-mono text-sm text-primary mb-12"><i class="fa-solid fa-location-dot"></i> Based in Tamil Nadu &middot; Open to Chennai / Bangalore / Hyderabad</p>
             
-            <div class="contact__buttons">
-                <a href="mailto:sudhakarkalathi25@gmail.com" class="btn btn-primary">Say Hello <i class="fa-solid fa-paper-plane ml-1"></i></a>
-                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin mr-1"></i> LinkedIn</a>
-                <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github mr-1"></i> GitHub</a>
-            </div>
+            <a href="mailto:sudhakarkalathi25@gmail.com" class="inline-flex items-center px-8 py-4 bg-textMain text-bgDark font-bold rounded hover:bg-gray-200 transition-colors text-lg">
+                Say Hello <i class="fa-regular fa-paper-plane ml-3"></i>
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer__container">
-            <div class="footer__brand">sudhakar<span class="accent">.dev</span></div>
-            <div class="footer__social">
-                <a href="https://github.com/Sudhakar-Kalathi" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:sudhakarkalathi25@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <p class="footer__copy">&copy; 2025 Sudhakar Kalathi S. Built with purpose.</p>
+    <footer class="py-8 border-t border-white/5 text-center">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="text-textMuted hover:text-textMain text-xl transition-colors"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="text-textMuted hover:text-textMain text-xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
         </div>
+        <p class="text-sm font-mono text-textMuted">&copy; 2025 Sudhakar Kalathi S. Built with purpose.</p>
     </footer>
 
-    <!-- ==================== MODALS ==================== -->
-    
+
+    <!-- ================= MODALS ================= -->
+
     <!-- Chit Fund Modal -->
-    <div id="modal-chitfund" class="modal">
-        <div class="modal__overlay" onclick="closeModal('modal-chitfund')"></div>
-        <div class="modal__content">
-            <button class="modal__close" onclick="closeModal('modal-chitfund')"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal__body">
-                <span class="modal__tag">Full Stack Development</span>
-                <h2 class="modal__title">SaaS Chit Fund Management System</h2>
-                <div class="modal__tech">
-                    <span>Java 17</span><span>Spring Boot 3</span><span>Spring Security</span><span>MySQL</span><span>React 18</span><span>JWT</span>
+    <div id="modal-chitfund" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal('modal-chitfund')"></div>
+        
+        <!-- Modal Content -->
+        <div class="modal-content relative bg-bgDark border border-white/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl z-10 flex flex-col">
+            
+            <button onclick="closeModal('modal-chitfund')" class="absolute top-4 right-4 w-10 h-10 bg-cardDark hover:bg-white/10 text-white rounded-full flex items-center justify-center transition-colors z-20 border border-white/10">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Hero Image -->
+            <div class="w-full h-64 sm:h-80 bg-black relative border-b border-white/10 flex-shrink-0">
+                <img src="assets/img/chit-fund.png" alt="Chit Fund Preview" class="w-full h-full object-cover opacity-90">
+                <div class="absolute inset-0 bg-gradient-to-t from-bgDark to-transparent"></div>
+            </div>
+
+            <!-- Body -->
+            <div class="p-8 sm:p-12 -mt-20 relative z-10">
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-mono text-primary bg-primary/20 rounded border border-primary/30">
+                    Full Stack Development
                 </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-textMain mb-4">SaaS Chit Fund Management System</h2>
                 
-                <img src="assets/img/chit-fund.png" alt="Chit Fund Dashboard" class="modal__hero-img">
-                
-                <div class="modal__section">
-                    <h3>Overview</h3>
-                    <p>A production-style SaaS financial platform designed to manage chit groups, enrollments, and payment tracking. Built with a focus on robust backend architecture, secure access, and precise financial calculations.</p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">Java 17</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">Spring Boot 3</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">Spring Security</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">MySQL</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">React 18</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">JWT</span>
                 </div>
 
-                <div class="modal__section">
-                    <h3>Engineering Highlights & Challenges</h3>
-                    <ul>
-                        <li><strong>Layered Architecture:</strong> Designed using a clean Controller-Service-Repository-DTO structure for maintainability and separation of concerns.</li>
-                        <li><strong>Security (RBAC):</strong> Implemented stateless JWT authentication with Spring Security, enforcing role-based access control (RBAC) to separate Admin and Staff permissions across all API endpoints.</li>
-                        <li><strong>Performance Optimization:</strong> Resolved critical N+1 query bottlenecks in Spring Data JPA using <code>FetchType.LAZY</code> and custom queries.</li>
-                        <li><strong>Financial Precision:</strong> Applied <code>BigDecimal</code> precision across the business logic to completely eliminate floating-point errors in financial calculations and tracking.</li>
-                    </ul>
+                <div class="space-y-8">
+                    <section>
+                        <h3 class="text-xl font-bold text-textMain mb-3 border-b border-white/10 pb-2">Overview</h3>
+                        <p class="leading-relaxed">A production-style SaaS financial platform designed to manage chit groups, enrollments, and payment tracking. Built with a focus on robust backend architecture, secure access, and precise financial calculations.</p>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-xl font-bold text-textMain mb-3 border-b border-white/10 pb-2">Engineering Highlights & Challenges</h3>
+                        <ul class="list-disc list-inside space-y-3 leading-relaxed">
+                            <li><strong class="text-textMain">Layered Architecture:</strong> Designed using a clean Controller-Service-Repository-DTO structure for maintainability and strict separation of concerns.</li>
+                            <li><strong class="text-textMain">Security (RBAC):</strong> Implemented stateless JWT authentication with Spring Security, enforcing role-based access control (RBAC) to separate Admin and Staff permissions across all API endpoints.</li>
+                            <li><strong class="text-textMain">Performance Optimization:</strong> Resolved critical N+1 query bottlenecks in Spring Data JPA using <code>FetchType.LAZY</code> and custom queries to optimize database loads.</li>
+                            <li><strong class="text-textMain">Financial Precision:</strong> Applied <code>BigDecimal</code> precision across the business logic to completely eliminate floating-point errors in financial calculations and tracking.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-textMain mb-3 border-b border-white/10 pb-2">Frontend Integration</h3>
+                        <p class="leading-relaxed">Built a responsive React single-page application (SPA) featuring a real-time analytics dashboard and a Day Book module for accurately tracking daily credits and debits seamlessly integrated via REST APIs.</p>
+                    </section>
                 </div>
 
-                <div class="modal__section">
-                    <h3>Frontend Integration</h3>
-                    <p>Built a responsive React single-page application (SPA) featuring a real-time analytics dashboard and a Day Book module for accurately tracking daily credits and debits.</p>
-                </div>
-
-                <div class="modal__links">
-                    <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github mr-1"></i> View Code</a>
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="inline-flex items-center px-6 py-3 border border-primary text-primary hover:bg-primary/10 rounded font-semibold transition-colors">
+                        <i class="fa-brands fa-github mr-2 text-lg"></i> View Source Code
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- LearnSphere Modal -->
-    <div id="modal-learnsphere" class="modal">
-        <div class="modal__overlay" onclick="closeModal('modal-learnsphere')"></div>
-        <div class="modal__content">
-            <button class="modal__close" onclick="closeModal('modal-learnsphere')"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal__body">
-                <span class="modal__tag">Enterprise Backend</span>
-                <h2 class="modal__title">LearnSphere E-Learning Platform</h2>
-                <div class="modal__tech">
-                    <span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>MySQL</span><span>JavaScript</span><span>REST APIs</span>
+    <div id="modal-learnsphere" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal('modal-learnsphere')"></div>
+        
+        <div class="modal-content relative bg-bgDark border border-white/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl z-10 flex flex-col">
+            
+            <button onclick="closeModal('modal-learnsphere')" class="absolute top-4 right-4 w-10 h-10 bg-cardDark hover:bg-white/10 text-white rounded-full flex items-center justify-center transition-colors z-20 border border-white/10">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="w-full h-64 sm:h-80 bg-black relative border-b border-white/10 flex-shrink-0">
+                <img src="assets/img/e-learning.png" alt="LearnSphere Preview" class="w-full h-full object-cover opacity-90 object-top">
+                <div class="absolute inset-0 bg-gradient-to-t from-bgDark to-transparent"></div>
+            </div>
+
+            <div class="p-8 sm:p-12 -mt-20 relative z-10">
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-mono text-primary bg-primary/20 rounded border border-primary/30">
+                    Enterprise Backend
                 </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-textMain mb-4">LearnSphere E-Learning Platform</h2>
                 
-                <img src="assets/img/e-learning.png" alt="LearnSphere Dashboard" class="modal__hero-img">
-                
-                <div class="modal__section">
-                    <h3>Overview</h3>
-                    <p>An enterprise-grade e-learning web platform designed to manage the end-to-end educational workflow. The system supports multiple user types with tailored portal experiences powered by a unified Spring Boot backend.</p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">Java</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">Spring Boot</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">Spring Security</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">MySQL</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">JavaScript</span>
+                    <span class="px-2 py-1 bg-cardDark border border-white/10 rounded text-xs font-mono text-textMain">REST APIs</span>
                 </div>
 
-                <div class="modal__section">
-                    <h3>Engineering Highlights & Architecture</h3>
-                    <ul>
-                        <li><strong>Role-Based Portals:</strong> Built three distinct portals (Admin, Instructor, and Student)—each with tailored UI and workflows served from a single Spring Boot backend.</li>
-                        <li><strong>RESTful API Design:</strong> Developed a comprehensive REST API layer managing Users, Courses, Lessons, Assignments, Enrollments, and Submissions.</li>
-                        <li><strong>Data Persistence:</strong> Integrated Spring Data JPA and MySQL for robust, relational data modeling and querying.</li>
-                        <li><strong>Stateless Security:</strong> Secured all backend endpoints using Spring Security combined with JWT-based stateless authentication and strict RBAC authorization.</li>
-                    </ul>
+                <div class="space-y-8">
+                    <section>
+                        <h3 class="text-xl font-bold text-textMain mb-3 border-b border-white/10 pb-2">Overview</h3>
+                        <p class="leading-relaxed">An enterprise-grade e-learning web platform designed to manage the end-to-end educational workflow. The system supports multiple user types with tailored portal experiences powered by a unified Spring Boot backend.</p>
+                    </section>
+                    
+                    <section>
+                        <h3 class="text-xl font-bold text-textMain mb-3 border-b border-white/10 pb-2">Engineering Highlights & Architecture</h3>
+                        <ul class="list-disc list-inside space-y-3 leading-relaxed">
+                            <li><strong class="text-textMain">Role-Based Portals:</strong> Built three distinct portals (Admin, Instructor, and Student)—each with tailored workflows served from a single Spring Boot backend.</li>
+                            <li><strong class="text-textMain">RESTful API Design:</strong> Developed a comprehensive REST API layer managing Users, Courses, Lessons, Assignments, Enrollments, and Submissions.</li>
+                            <li><strong class="text-textMain">Data Persistence:</strong> Integrated Spring Data JPA and MySQL for robust, relational data modeling and complex querying.</li>
+                            <li><strong class="text-textMain">Stateless Security:</strong> Secured all backend endpoints using Spring Security combined with JWT-based stateless authentication and strict RBAC authorization.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-textMain mb-3 border-b border-white/10 pb-2">Frontend Integration</h3>
+                        <p class="leading-relaxed">Developed an SPA-like frontend using vanilla JavaScript. Implemented real-time API integration with dynamic DOM updates, styled with a custom responsive CSS system to ensure a seamless cross-device user experience.</p>
+                    </section>
                 </div>
 
-                <div class="modal__section">
-                    <h3>Frontend Integration</h3>
-                    <p>Developed an SPA-like frontend using vanilla JavaScript. Implemented real-time API integration with dynamic DOM updates, styled with a custom responsive CSS system to ensure a seamless cross-device user experience.</p>
-                </div>
-
-                <div class="modal__links">
-                    <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github mr-1"></i> View Code</a>
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="inline-flex items-center px-6 py-3 border border-primary text-primary hover:bg-primary/10 rounded font-semibold transition-colors">
+                        <i class="fa-brands fa-github mr-2 text-lg"></i> View Source Code
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const icon = mobileBtn.querySelector('i');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Navbar blur on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Modals
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        }
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if(activeModal) {
+                    activeModal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
+            }
+        });
+    </script>
 </body>
 </html>

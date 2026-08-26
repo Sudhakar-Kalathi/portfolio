@@ -3,289 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudhakar Kalathi S - Portfolio</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sudhakar Kalathi S | Java Developer</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-    <!-- Navbar -->
-    <header class="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Sudhakar.</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#experience" class="nav__link">Experience</a></li>
-                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>
+<body class="dark-theme">
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav__container container">
+            <a href="#home" class="nav__logo">sudhakar<span class="accent">.dev</span></a>
+            <ul class="nav__list" id="nav-list">
+                <li><a href="#home" class="nav__link">Home</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#projects" class="nav__link">Projects</a></li>
+                <li><a href="#skills" class="nav__link">Skills</a></li>
+                <li><a href="#experience" class="nav__link">Experience</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+                <li><a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="btn btn-outline btn-sm">Resume</a></li>
+            </ul>
             <div class="nav__toggle" id="nav-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Home Section -->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__content">
-                    <span class="home__subtitle">Hello, I'm</span>
-                    <h1 class="home__title">Sudhakar Kalathi S</h1>
-                    <h3 class="home__education">Java Full Stack Developer</h3>
-                    <p class="home__description">
-                        Computer Science Engineering graduate (2025) with hands-on experience in Java full-stack development. Skilled in building scalable, RESTful backend systems using Java, Spring Boot, and MySQL, paired with responsive frontends using React and JavaScript. Strong foundation in Object-Oriented Programming (OOP) and backend integration. Seeking an entry-level Software Engineer / Java Full Stack Developer role to contribute to reliable software systems.
-                    </p>
-                    <div class="home__buttons">
-                        <a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="btn">Download Resume <i class="fa-solid fa-download"></i></a>
-                        <a href="#contact" class="btn btn--outline">Contact Me</a>
-                    </div>
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="home__social-link">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="home__social-link">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero section" id="home">
+        <div class="hero__container container">
+            <div class="hero__badge">OPEN TO SOFTWARE ENGINEERING ROLES · 2025 GRADUATE</div>
+            <h1 class="hero__name">Sudhakar Kalathi S</h1>
+            <h2 class="hero__title">Java Developer <span class="accent">&middot;</span> Backend & Full Stack</h2>
+            <p class="hero__description">
+                Computer Science Engineering graduate focused on building reliable backend systems and responsive full-stack applications using Java, Spring Boot, Spring Security, REST APIs, MySQL, and React.
+            </p>
+            
+            <div class="hero__buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="assets/pdf/Sudhakar_Kalathi_Resume.pdf" download class="btn btn-outline">Download Resume</a>
+                <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-icon"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="btn btn-icon"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+
+            <div class="hero__tech">
+                <span>Java 17</span> &middot; <span>Spring Boot 3</span> &middot; <span>Spring Security</span> &middot; <span>REST APIs</span> &middot; <span>MySQL</span> &middot; <span>React</span>
+            </div>
+
+            <div class="hero__stats">
+                <div class="stat__card">
+                    <span class="stat__title">2+</span>
+                    <span class="stat__desc">Enterprise-Style Systems</span>
                 </div>
-                <div class="home__img-wrapper">
-                    <img src="assets/img/SKimg.jpg" alt="Sudhakar Kalathi S" class="home__img">
+                <div class="stat__card">
+                    <span class="stat__title">Java & Spring</span>
+                    <span class="stat__desc">Primary Development Stack</span>
+                </div>
+                <div class="stat__card">
+                    <span class="stat__title">2025</span>
+                    <span class="stat__desc">CSE Graduate</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
-            <span class="section__subtitle">My Introduction</span>
-            <div class="about__container container grid">
-                <div class="about__data">
-                    <p class="about__description">
-                        Computer Science Engineering graduate (2025) with hands-on experience in Java full-stack development. Skilled in building scalable, RESTful backend systems using Java, Spring Boot, and MySQL, paired with responsive frontends using React and JavaScript. Strong foundation in Object-Oriented Programming (OOP) and backend integration. Seeking an entry-level Software Engineer / Java Full Stack Developer role to contribute to reliable software systems.
-                    </p>
-                    <div class="about__info">
-                        <div class="about__box">
-                            <i class="fa-solid fa-graduation-cap about__icon"></i>
-                            <h3 class="about__title">Education</h3>
-                            <span class="about__subtitle">B.E. CSE - 2025</span>
-                            <span class="about__subtitle">Sri Venkateswara College of Engineering</span>
-                        </div>
-                        <div class="about__box">
-                            <i class="fa-solid fa-code about__icon"></i>
-                            <h3 class="about__title">Professional Skills</h3>
-                            <span class="about__subtitle">HTML5, CSS3, JavaScript, Java, Spring Boot, React, MySQL</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">01. Who I Am</h2>
+                <div class="section__line"></div>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Skills</h2>
-            <span class="section__subtitle">My Technical Level</span>
-            <div class="skills__container container grid">
-                
-                <!-- Frontend -->
-                <div class="skills__content">
-                    <h3 class="skills__title">Frontend</h3>
-                    <div class="skills__box">
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="fa-brands fa-html5"></i>
-                                <div><h3 class="skills__name">HTML5</h3></div>
-                            </div>
-                            <div class="skills__data">
-                                <i class="fa-brands fa-css3-alt"></i>
-                                <div><h3 class="skills__name">CSS3</h3></div>
-                            </div>
-                        </div>
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="fa-brands fa-js"></i>
-                                <div><h3 class="skills__name">JavaScript</h3></div>
-                            </div>
-                            <div class="skills__data">
-                                <i class="fa-brands fa-react"></i>
-                                <div><h3 class="skills__name">React</h3></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Backend & DB -->
-                <div class="skills__content">
-                    <h3 class="skills__title">Backend & Databases</h3>
-                    <div class="skills__box">
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="fa-brands fa-java"></i>
-                                <div><h3 class="skills__name">Java</h3></div>
-                            </div>
-                            <div class="skills__data">
-                                <i class="fa-brands fa-cuttlefish"></i>
-                                <div><h3 class="skills__name">C++</h3></div>
-                            </div>
-                            <div class="skills__data">
-                                <i class="fa-solid fa-leaf"></i>
-                                <div><h3 class="skills__name">Spring Boot</h3></div>
-                            </div>
-                        </div>
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="fa-solid fa-server"></i>
-                                <div><h3 class="skills__name">REST APIs</h3></div>
-                            </div>
-                            <div class="skills__data">
-                                <i class="fa-solid fa-database"></i>
-                                <div><h3 class="skills__name">MySQL</h3></div>
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="about__content">
+                <div class="about__text">
+                    <p>I'm Sudhakar, a Computer Science Engineering graduate who enjoys turning complex logic into working software. My primary focus is <strong>Java backend development</strong>, with hands-on experience building full-stack applications using Spring Boot, REST APIs, MySQL, and React.</p>
+                    <p>I enjoy understanding how systems work behind the UI—from JWT authentication and API design to database relationships and role-based access control. I'm currently looking for an entry-level <strong>Software Engineer / Java Developer</strong> opportunity where I can contribute to real-world systems, learn from experienced engineers, and grow into a strong backend-focused developer.</p>
                 </div>
                 
-                <!-- Core & Tools -->
-                <div class="skills__content">
-                    <h3 class="skills__title">Core Concepts & Tools</h3>
-                    <div class="skills__box">
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="fa-solid fa-code"></i>
-                                <div><h3 class="skills__name">Data Structures</h3></div>
-                            </div>
-                            <div class="skills__data">
-                                <i class="fa-solid fa-cubes"></i>
-                                <div><h3 class="skills__name">OOP & DBMS</h3></div>
-                            </div>
-                        </div>
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <i class="fa-solid fa-code-compare"></i>
-                                <div><h3 class="skills__name">Git / GitHub</h3></div>
-                            </div>
-                        </div>
+                <h3 class="about__subtitle mt-3">How I Work</h3>
+                <div class="about__grid">
+                    <div class="about__card">
+                        <i class="fa-solid fa-bullseye about__icon"></i>
+                        <h4>Build with purpose</h4>
+                        <p>I focus on solving the actual problem rather than adding unnecessary complexity. Clean, functional code over over-engineering.</p>
+                    </div>
+                    <div class="about__card">
+                        <i class="fa-solid fa-server about__icon"></i>
+                        <h4>Backend first</h4>
+                        <p>I care deeply about clean REST APIs, secure business logic (RBAC, JWT), scalable database design, and maintainable architecture.</p>
+                    </div>
+                    <div class="about__card">
+                        <i class="fa-solid fa-laptop-code about__icon"></i>
+                        <h4>Learn by building</h4>
+                        <p>My strongest learning comes from turning theoretical concepts into working applications and resolving real-world bottlenecks.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section class="experience section" id="experience">
-            <h2 class="section__title">Experience</h2>
-            <span class="section__subtitle">My Professional Journey</span>
-            <div class="experience__container container">
-                <div class="experience__content">
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">02. Featured Projects</h2>
+                <div class="section__line"></div>
+            </div>
+            
+            <div class="projects__grid">
+                
+                <!-- Project 1: Chit Fund -->
+                <div class="project__card" onclick="openModal('modal-chitfund')">
+                    <div class="project__image">
+                        <img src="assets/img/chit-fund.png" alt="Chit Fund Management System">
+                        <div class="project__overlay">
+                            <span>View Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <div class="project__info">
+                        <h3>SaaS Chit Fund Management System</h3>
+                        <p class="project__tech-line">Java &middot; Spring Boot &middot; Spring Security &middot; MySQL &middot; React</p>
+                        <p class="project__desc">A production-style full-stack financial platform for managing chit groups, enrollments, and payment tracking with stateless JWT authentication.</p>
+                        <div class="project__highlights">
+                            <span class="highlight">REST API</span>
+                            <span class="highlight">RBAC Security</span>
+                            <span class="highlight">Query Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: LearnSphere -->
+                <div class="project__card" onclick="openModal('modal-learnsphere')">
+                    <div class="project__image">
+                        <img src="assets/img/e-learning.png" alt="LearnSphere E-Learning Platform">
+                        <div class="project__overlay">
+                            <span>View Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <div class="project__info">
+                        <h3>LearnSphere Enterprise E-Learning</h3>
+                        <p class="project__tech-line">Java &middot; Spring Boot &middot; JWT &middot; MySQL &middot; JavaScript</p>
+                        <p class="project__desc">A full-stack learning platform featuring three role-based portals (Admin, Instructor, Student) to manage courses, enrollments, and quizzes.</p>
+                        <div class="project__highlights">
+                            <span class="highlight">Layered Architecture</span>
+                            <span class="highlight">Stateless Auth</span>
+                            <span class="highlight">SPA Frontend</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">03. Engineering Focus</h2>
+                <div class="section__line"></div>
+            </div>
+            
+            <div class="skills__grid">
+                <!-- Fundamentals -->
+                <div class="skills__card full-width">
+                    <h3 class="skills__category"><i class="fa-solid fa-gears"></i> Engineering Fundamentals</h3>
+                    <div class="skills__list fundamentals">
+                        <div class="skill__item">
+                            <strong>Object-Oriented Programming:</strong> Encapsulation &middot; Inheritance &middot; Abstraction &middot; Polymorphism
+                        </div>
+                        <div class="skill__item">
+                            <strong>Backend Development:</strong> REST APIs &middot; MVC Layered Architecture &middot; Exception Handling &middot; DTO Pattern
+                        </div>
+                        <div class="skill__item">
+                            <strong>Database Design:</strong> SQL &middot; Joins &middot; Relationships &middot; Normalization &middot; Transactions &middot; N+1 Query Resolution
+                        </div>
+                        <div class="skill__item">
+                            <strong>Security:</strong> Stateless Authentication (JWT) &middot; Role-Based Access Control (RBAC) &middot; Spring Security
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="skills__card">
+                    <h3 class="skills__category"><i class="fa-solid fa-code"></i> Languages</h3>
+                    <div class="skills__tags">
+                        <span>Java</span>
+                        <span>JavaScript</span>
+                        <span>C++</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__category"><i class="fa-solid fa-server"></i> Backend</h3>
+                    <div class="skills__tags">
+                        <span>Spring Boot 3</span>
+                        <span>Spring Security</span>
+                        <span>Spring Data JPA</span>
+                        <span>Hibernate</span>
+                        <span>REST APIs</span>
+                        <span>JWT</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__category"><i class="fa-solid fa-database"></i> Database</h3>
+                    <div class="skills__tags">
+                        <span>MySQL</span>
+                        <span>Relational Modeling</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__category"><i class="fa-solid fa-laptop-code"></i> Frontend</h3>
+                    <div class="skills__tags">
+                        <span>React</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript (DOM)</span>
+                    </div>
+                </div>
+
+                <div class="skills__card">
+                    <h3 class="skills__category"><i class="fa-solid fa-toolbox"></i> Tools & Practices</h3>
+                    <div class="skills__tags">
+                        <span>Git & GitHub</span>
+                        <span>Maven</span>
+                        <span>Postman</span>
+                        <span>Cloudflare Tunnels</span>
+                        <span>Debugging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">04. Engineering Experience</h2>
+                <div class="section__line"></div>
+            </div>
+            
+            <div class="experience__timeline">
+                <div class="experience__item">
                     <div class="experience__header">
-                        <h3 class="experience__title">Web Developer Intern</h3>
-                        <span class="experience__company">The National Small Industries Corporation Limited - NSIC</span>
-                        <span class="experience__calendar"><i class="fa-regular fa-calendar"></i> 06/2023 - 07/2023 | Chennai</span>
+                        <div>
+                            <h3 class="experience__role">Web Developer Intern</h3>
+                            <span class="experience__company">National Small Industries Corporation (NSIC)</span>
+                        </div>
+                        <span class="experience__date">June 2023 – July 2023 | Chennai, TN</span>
                     </div>
-                    <ul class="experience__list">
-                        <li class="experience__item">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <p>Built 5+ responsive web pages using HTML5, CSS3, and JavaScript, ensuring cross-browser compatibility and improved UX.</p>
-                        </li>
-                        <li class="experience__item">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <p>Collaborated with a 4-member development team to deliver full-stack modules within tight timelines.</p>
-                        </li>
-                        <li class="experience__item">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <p>Improved frontend structure and backend integration, reducing UI-related issues by ~30% during testing.</p>
-                        </li>
+                    <ul class="experience__bullets">
+                        <li>Built 5+ responsive web pages using HTML5, CSS3, and JavaScript, ensuring strict cross-browser compatibility.</li>
+                        <li>Collaborated within a 4-member development team to deliver full-stack modules within tight project timelines.</li>
+                        <li>Restructured frontend components and streamlined backend integration points, successfully cutting UI-related defects by ~30% during testing.</li>
                     </ul>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section class="projects section" id="projects">
-            <h2 class="section__title">Projects</h2>
-            <span class="section__subtitle">My Recent Work</span>
-            <div class="projects__container container grid">
-                <!-- Project 1 -->
-                <div class="projects__card">
-                    <h3 class="projects__title">Chit Fund Management System</h3>
-                    <span class="projects__tech">Java, Spring Boot, MySQL, HTML, CSS, React</span>
-                    <span class="projects__date"><i class="fa-regular fa-calendar"></i> 08/2025 - 02/2026</span>
-                    <ul class="projects__list">
-                        <li><i class="fa-solid fa-angle-right"></i> Developed a Chit Fund Management System to manage chit groups, customers, and month-wise payments.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> Implemented Admin and Staff roles with manual payment entry, balances, statuses, and partial payments.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> Built RESTful APIs using Spring Boot and designed a MySQL database for payment and customer data.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> Integrated Spring Boot backend with a React frontend for chit and customer-level views.</li>
-                    </ul>
-                </div>
-                <!-- Project 2 -->
-                <div class="projects__card">
-                    <h3 class="projects__title">E-Learning Platform (LearnSphere)</h3>
-                    <span class="projects__tech">HTML • CSS • JavaScript • Java • Spring Boot • MySQL</span>
-                    <span class="projects__date"><i class="fa-regular fa-calendar"></i> 03/2025 - 06/2025</span>
-                    <ul class="projects__list">
-                        <li><i class="fa-solid fa-angle-right"></i> Designed and developed a responsive e-learning web platform using HTML, CSS, and JavaScript, ensuring smooth user interaction across desktop and mobile devices.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> Built Java-based backend services integrated with a MySQL database to manage courses, users, quizzes, and assignments.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> Implemented dynamic learning features such as video lectures and assessments to support self-paced learning.</li>
-                    </ul>
-                </div>
+            <!-- Education -->
+            <div class="section__header mt-4">
+                <h2 class="section__title">05. Education</h2>
+                <div class="section__line"></div>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact Me</h2>
-            <span class="section__subtitle">Get in touch</span>
-            <div class="contact__container container grid">
-                <div class="contact__content">
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <i class="fa-solid fa-envelope contact__card-icon"></i>
-                            <h3 class="contact__card-title">Email</h3>
-                            <span class="contact__card-data">sudhakarkalathi25@gmail.com</span>
-                            <a href="mailto:sudhakarkalathi25@gmail.com" class="contact__button">Write me <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="experience__timeline">
+                <div class="experience__item">
+                    <div class="experience__header">
+                        <div>
+                            <h3 class="experience__role">B.E. Computer Science & Engineering</h3>
+                            <span class="experience__company">Sri Venkateswara College of Engineering (SVCE)</span>
                         </div>
-                        <div class="contact__card">
-                            <i class="fa-solid fa-phone contact__card-icon"></i>
-                            <h3 class="contact__card-title">Phone</h3>
-                            <span class="contact__card-data">+91 9380925036</span>
-                            <a href="tel:+919380925036" class="contact__button">Call me <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                        <div class="contact__card">
-                            <i class="fa-solid fa-location-dot contact__card-icon"></i>
-                            <h3 class="contact__card-title">Location</h3>
-                            <span class="contact__card-data">Kanchipuram, Tamil Nadu, India</span>
-                        </div>
+                        <span class="experience__date">2021 – 2025 | Chennai</span>
                     </div>
+                    <ul class="experience__bullets">
+                        <li><strong>Certifications:</strong> Web Design (Udemy), Complete JavaScript Course (Udemy), Java (Great Learning).</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container contact__container">
+            <h2 class="contact__title">Let's Build Something</h2>
+            <p class="contact__text">
+                I'm currently looking for entry-level Software Engineer, Java Developer, and Backend Developer opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            <p class="contact__location"><i class="fa-solid fa-location-dot"></i> Based in Tamil Nadu, India &middot; Open to Chennai / Bangalore / Hyderabad</p>
+            
+            <div class="contact__buttons">
+                <a href="mailto:sudhakarkalathi25@gmail.com" class="btn btn-primary">Say Hello <i class="fa-solid fa-paper-plane ml-1"></i></a>
+                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin mr-1"></i> LinkedIn</a>
+                <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github mr-1"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer__container container">
-            <h1 class="footer__title">Sudhakar.</h1>
-            <ul class="footer__list">
-                <li><a href="#about" class="footer__link">About</a></li>
-                <li><a href="#projects" class="footer__link">Projects</a></li>
-                <li><a href="#experience" class="footer__link">Experience</a></li>
-            </ul>
+        <div class="container footer__container">
+            <div class="footer__brand">sudhakar<span class="accent">.dev</span></div>
             <div class="footer__social">
-                <a href="https://www.linkedin.com/in/sudhakar-kalathi-s" target="_blank" class="footer__social-link"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="footer__social-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com/Sudhakar-Kalathi" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/sudhakar-kalathi-s" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:sudhakarkalathi25@gmail.com"><i class="fa-solid fa-envelope"></i></a>
             </div>
-            <span class="footer__copy">&#169; Sudhakar Kalathi S. All rights reserved.</span>
+            <p class="footer__copy">&copy; 2025 Sudhakar Kalathi S. Built with purpose.</p>
         </div>
     </footer>
+
+    <!-- ==================== MODALS ==================== -->
+    
+    <!-- Chit Fund Modal -->
+    <div id="modal-chitfund" class="modal">
+        <div class="modal__overlay" onclick="closeModal('modal-chitfund')"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('modal-chitfund')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal__body">
+                <span class="modal__tag">Full Stack Development</span>
+                <h2 class="modal__title">SaaS Chit Fund Management System</h2>
+                <div class="modal__tech">
+                    <span>Java 17</span><span>Spring Boot 3</span><span>Spring Security</span><span>MySQL</span><span>React 18</span><span>JWT</span>
+                </div>
+                
+                <img src="assets/img/chit-fund.png" alt="Chit Fund Dashboard" class="modal__hero-img">
+                
+                <div class="modal__section">
+                    <h3>Overview</h3>
+                    <p>A production-style SaaS financial platform designed to manage chit groups, enrollments, and payment tracking. Built with a focus on robust backend architecture, secure access, and precise financial calculations.</p>
+                </div>
+
+                <div class="modal__section">
+                    <h3>Engineering Highlights & Challenges</h3>
+                    <ul>
+                        <li><strong>Layered Architecture:</strong> Designed using a clean Controller-Service-Repository-DTO structure for maintainability and separation of concerns.</li>
+                        <li><strong>Security (RBAC):</strong> Implemented stateless JWT authentication with Spring Security, enforcing role-based access control (RBAC) to separate Admin and Staff permissions across all API endpoints.</li>
+                        <li><strong>Performance Optimization:</strong> Resolved critical N+1 query bottlenecks in Spring Data JPA using <code>FetchType.LAZY</code> and custom queries.</li>
+                        <li><strong>Financial Precision:</strong> Applied <code>BigDecimal</code> precision across the business logic to completely eliminate floating-point errors in financial calculations and tracking.</li>
+                    </ul>
+                </div>
+
+                <div class="modal__section">
+                    <h3>Frontend Integration</h3>
+                    <p>Built a responsive React single-page application (SPA) featuring a real-time analytics dashboard and a Day Book module for accurately tracking daily credits and debits.</p>
+                </div>
+
+                <div class="modal__links">
+                    <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github mr-1"></i> View Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LearnSphere Modal -->
+    <div id="modal-learnsphere" class="modal">
+        <div class="modal__overlay" onclick="closeModal('modal-learnsphere')"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('modal-learnsphere')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal__body">
+                <span class="modal__tag">Enterprise Backend</span>
+                <h2 class="modal__title">LearnSphere E-Learning Platform</h2>
+                <div class="modal__tech">
+                    <span>Java</span><span>Spring Boot</span><span>Spring Security</span><span>MySQL</span><span>JavaScript</span><span>REST APIs</span>
+                </div>
+                
+                <img src="assets/img/e-learning.png" alt="LearnSphere Dashboard" class="modal__hero-img">
+                
+                <div class="modal__section">
+                    <h3>Overview</h3>
+                    <p>An enterprise-grade e-learning web platform designed to manage the end-to-end educational workflow. The system supports multiple user types with tailored portal experiences powered by a unified Spring Boot backend.</p>
+                </div>
+
+                <div class="modal__section">
+                    <h3>Engineering Highlights & Architecture</h3>
+                    <ul>
+                        <li><strong>Role-Based Portals:</strong> Built three distinct portals (Admin, Instructor, and Student)—each with tailored UI and workflows served from a single Spring Boot backend.</li>
+                        <li><strong>RESTful API Design:</strong> Developed a comprehensive REST API layer managing Users, Courses, Lessons, Assignments, Enrollments, and Submissions.</li>
+                        <li><strong>Data Persistence:</strong> Integrated Spring Data JPA and MySQL for robust, relational data modeling and querying.</li>
+                        <li><strong>Stateless Security:</strong> Secured all backend endpoints using Spring Security combined with JWT-based stateless authentication and strict RBAC authorization.</li>
+                    </ul>
+                </div>
+
+                <div class="modal__section">
+                    <h3>Frontend Integration</h3>
+                    <p>Developed an SPA-like frontend using vanilla JavaScript. Implemented real-time API integration with dynamic DOM updates, styled with a custom responsive CSS system to ensure a seamless cross-device user experience.</p>
+                </div>
+
+                <div class="modal__links">
+                    <a href="https://github.com/Sudhakar-Kalathi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github mr-1"></i> View Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

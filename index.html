@@ -207,9 +207,11 @@
         </div>
         <div class="project-stack">
           <button class="project-card" type="button" data-open="chit" aria-haspopup="dialog">
-            <div class="project-media">
+            <div class="project-visual project-visual--chit" aria-hidden="true">
               <span class="badge">Primary project</span>
-              <img src="assets/img/chit-fund.png" alt="Chit Fund Management System application screenshot" width="1200" height="700" loading="lazy">
+              <p class="project-visual-mark">CF</p>
+              <p class="project-visual-name">Chit Fund Management System</p>
+              <p class="project-visual-stack">Java · Spring Boot · MySQL · React</p>
             </div>
             <div class="project-body">
               <p class="section-kicker">Java · Spring Boot · MySQL · React</p>
@@ -225,9 +227,11 @@
           </button>
 
           <button class="project-card secondary" type="button" data-open="learn" aria-haspopup="dialog">
-            <div class="project-media">
+            <div class="project-visual project-visual--learn" aria-hidden="true">
               <span class="badge">Second project</span>
-              <img src="assets/img/e-learning.png" alt="LearnSphere e-learning platform screenshot" width="1200" height="700" loading="lazy">
+              <p class="project-visual-mark">LS</p>
+              <p class="project-visual-name">LearnSphere</p>
+              <p class="project-visual-stack">Java · Spring Boot · MySQL · JavaScript</p>
             </div>
             <div class="project-body">
               <p class="section-kicker">Java · Spring Boot · MySQL · JavaScript</p>
@@ -300,35 +304,35 @@
         </div>
         <div class="cert-grid">
           <article class="cert-card">
-            <div class="cert-preview" aria-hidden="true"><span>01</span><small>Credential</small></div>
+            <div class="cert-preview" aria-hidden="true"><span>HTML/CSS</span><small>Udemy</small></div>
             <div class="cert-body">
-              <h3>Certificate 01</h3>
-              <p>Original credential available to review.</p>
-              <a class="btn btn-secondary" href="https://drive.google.com/file/d/1BLFRwWN1_L3Z9sH58Rh8Ux_jexzzVS4i/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
+              <h3>Web Design Course With HTML and CSS</h3>
+              <p>Udemy · Original credential available to review.</p>
+              <a class="btn btn-secondary" href="https://drive.google.com/file/d/1x86-p4dYJ4mEoMmYhtSnZ6-ZjzXxSyXx/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
             </div>
           </article>
           <article class="cert-card">
-            <div class="cert-preview" aria-hidden="true"><span>02</span><small>Credential</small></div>
+            <div class="cert-preview" aria-hidden="true"><span>JS</span><small>Udemy</small></div>
             <div class="cert-body">
-              <h3>Certificate 02</h3>
-              <p>Original credential available to review.</p>
-              <a class="btn btn-secondary" href="https://drive.google.com/file/d/1x99To9l82y32zszGCezhRjN7bmDNkukM/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-preview" aria-hidden="true"><span>03</span><small>Credential</small></div>
-            <div class="cert-body">
-              <h3>Certificate 03</h3>
-              <p>Original credential available to review.</p>
+              <h3>The Complete JavaScript Course</h3>
+              <p>Udemy · Original credential available to review.</p>
               <a class="btn btn-secondary" href="https://drive.google.com/file/d/1xA5ePQMBPzAv5HG-Fgc8YOH6ivYEPU8V/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
             </div>
           </article>
           <article class="cert-card">
-            <div class="cert-preview" aria-hidden="true"><span>04</span><small>Credential</small></div>
+            <div class="cert-preview" aria-hidden="true"><span>JAVA</span><small>Great Learning</small></div>
             <div class="cert-body">
-              <h3>Certificate 04</h3>
+              <h3>Java Programming</h3>
+              <p>Great Learning · Original credential available to review.</p>
+              <a class="btn btn-secondary" href="https://drive.google.com/file/d/1BLFRwWN1_L3Z9sH58Rh8Ux_jexzzVS4i/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-preview" aria-hidden="true"><span>REACT</span><small>Credential</small></div>
+            <div class="cert-body">
+              <h3>React</h3>
               <p>Original credential available to review.</p>
-              <a class="btn btn-secondary" href="https://drive.google.com/file/d/1x86-p4dYJ4mEoMmYhtSnZ6-ZjzXxSyXx/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
+              <a class="btn btn-secondary" href="https://drive.google.com/file/d/1x99To9l82y32zszGCezhRjN7bmDNkukM/view?usp=sharing" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
@@ -436,8 +440,7 @@
       <button class="btn btn-ghost" type="button" data-close aria-label="Close Chit Fund Management System case study">← Back to projects</button>
     </div>
     <div class="case-scroll">
-      <div class="case-hero">
-        <img src="assets/img/chit-fund.png" alt="Chit Fund Management System interface">
+      <div class="case-hero chit">
         <div class="overlay">
           <div class="wrap">
             <h1 id="chit-title">Chit Fund Management System</h1>
@@ -511,7 +514,34 @@
           <p>Domain rules belong in services, not in the UI. Once group capacity and payment locks lived on the server, the frontend became a client of those rules instead of a second copy of them.</p>
 
           <h2>Screenshots</h2>
-          <p><img src="assets/img/chit-fund.png" alt="Chit Fund Management System screenshot" loading="lazy"></p>
+          <div class="shot-slider" data-slider tabindex="0">
+            <div data-slide>
+              <img src="assets/img/projects/chit/login.png" alt="Chit Fund Manager login screen" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/chit/dashboard.png" alt="Chit Fund Manager dashboard" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/chit/customers.png" alt="Chit Fund Manager customers screen" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/chit/chit-groups.png" alt="Chit Fund Manager chit groups screen" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/chit/payments.png" alt="Chit Fund Manager payments screen" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/chit/daybook.png" alt="Chit Fund Manager day book screen" loading="lazy">
+            </div>
+            <div class="shot-caption">
+              <span data-caption>Login</span>
+              <div class="shot-controls">
+                <button class="shot-btn" type="button" data-prev aria-label="Previous screenshot">‹</button>
+                <span class="shot-status" data-status>1 / 6</span>
+                <button class="shot-btn" type="button" data-next aria-label="Next screenshot">›</button>
+              </div>
+            </div>
+          </div>
         </div>
         <aside class="side-box">
           <h3>Links</h3>
@@ -533,8 +563,7 @@
       <button class="btn btn-ghost" type="button" data-close aria-label="Close LearnSphere case study">← Back to projects</button>
     </div>
     <div class="case-scroll">
-      <div class="case-hero">
-        <img src="assets/img/e-learning.png" alt="LearnSphere platform interface">
+      <div class="case-hero learn">
         <div class="overlay">
           <div class="wrap">
             <h1 id="learn-title">LearnSphere – E-Learning Platform</h1>
@@ -604,7 +633,61 @@
           <p>Role checks are cheaper to reason about when they sit on the controller, not only in the UI. The UI can still fail closed if the API refuses the call.</p>
 
           <h2>Screenshots</h2>
-          <p><img src="assets/img/e-learning.png" alt="LearnSphere screenshot" loading="lazy"></p>
+          <div class="shot-slider" data-slider tabindex="0">
+            <div data-slide>
+              <img src="assets/img/projects/learn/01-home.png" alt="LearnSphere home page" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/02-login.png" alt="LearnSphere login page" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/03-signup.png" alt="LearnSphere signup page" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/04-courses-catalog.png" alt="LearnSphere course catalog" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/05-course-detail-java.png" alt="LearnSphere Java course detail" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/06-lesson.png" alt="LearnSphere lesson view" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/07-quiz.png" alt="LearnSphere quiz screen" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/08-assignment.png" alt="LearnSphere assignment screen" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/09-dashboard-student.png" alt="LearnSphere student dashboard" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/10-courses-view-as-student.png" alt="LearnSphere courses as student" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/11-dashboard-instructor.png" alt="LearnSphere instructor dashboard" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/12-courses-view-as-instructor.png" alt="LearnSphere courses as instructor" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/13-dashboard-admin.png" alt="LearnSphere admin dashboard" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/14-courses-view-as-admin.png" alt="LearnSphere courses as admin" loading="lazy">
+            </div>
+            <div data-slide hidden>
+              <img src="assets/img/projects/learn/15-home-logged-out.png" alt="LearnSphere home logged out" loading="lazy">
+            </div>
+            <div class="shot-caption">
+              <span data-caption>Home</span>
+              <div class="shot-controls">
+                <button class="shot-btn" type="button" data-prev aria-label="Previous screenshot">‹</button>
+                <span class="shot-status" data-status>1 / 15</span>
+                <button class="shot-btn" type="button" data-next aria-label="Next screenshot">›</button>
+              </div>
+            </div>
+          </div>
         </div>
         <aside class="side-box">
           <h3>Links</h3>

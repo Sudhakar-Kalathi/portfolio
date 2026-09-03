@@ -6,21 +6,37 @@
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
-  function closeDrawer() {
+  function setDrawer(open) {
     if (!drawer || !menuBtn) return;
-    drawer.hidden = true;
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.setAttribute("aria-label", "Open menu");
+    drawer.hidden = !open;
+    drawer.classList.toggle("is-open", open);
+    menuBtn.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  function closeDrawer() {
+    setDrawer(false);
   }
 
   if (menuBtn && drawer) {
-    menuBtn.addEventListener("click", () => {
-      const willOpen = drawer.hidden;
-      drawer.hidden = !willOpen;
-      menuBtn.setAttribute("aria-expanded", String(willOpen));
-      menuBtn.setAttribute("aria-label", willOpen ? "Close menu" : "Open menu");
+    menuBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const isOpen = drawer.classList.contains("is-open");
+      setDrawer(!isOpen);
     });
-    drawer.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeDrawer));
+    drawer.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", closeDrawer);
+    });
+    document.addEventListener("click", (event) => {
+      if (drawer.hidden) return;
+      if (drawer.contains(event.target) || menuBtn.contains(event.target)) return;
+      closeDrawer();
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 980) closeDrawer();
+    });
   }
 
   const observer = new IntersectionObserver(
@@ -88,9 +104,44 @@
     btn.addEventListener("click", () => openCase(btn.getAttribute("data-switch")));
   });
 
+  function captionFromSlide(slide) {
+    const img = slide.querySelector("img");
+    if (!img) return "";
+    return img.alt.replace(/^(Chit Fund Manager|LearnSphere)\s+/i, "");
+  }
+
+  document.querySelectorAll("[data-slider]").forEach((slider) => {
+    const slides = [...slider.querySelectorAll("[data-slide]")];
+    const prev = slider.querySelector("[data-prev]");
+    const next = slider.querySelector("[data-next]");
+    const status = slider.querySelector("[data-status]");
+    const caption = slider.querySelector("[data-caption]");
+    let index = 0;
+
+    function show(nextIndex) {
+      if (!slides.length) return;
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.hidden = i !== index;
+      });
+      if (status) status.textContent = index + 1 + " / " + slides.length;
+      if (caption) caption.textContent = captionFromSlide(slides[index]);
+    }
+
+    prev?.addEventListener("click", () => show(index - 1));
+    next?.addEventListener("click", () => show(index + 1));
+
+    slider.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") show(index - 1);
+      if (event.key === "ArrowRight") show(index + 1);
+    });
+
+    show(0);
+  });
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      if (!drawer?.hidden) closeDrawer();
+      if (drawer && !drawer.hidden) closeDrawer();
       else if (Object.values(cases).some((el) => el && !el.hasAttribute("hidden"))) closeCases();
     }
 

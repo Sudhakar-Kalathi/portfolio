@@ -417,7 +417,7 @@ section { padding: 72px 0; }
 
 .project-card {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: 0;
   background: var(--white);
   border: 1px solid var(--line);
@@ -433,7 +433,7 @@ section { padding: 72px 0; }
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-card.secondary { grid-template-columns: 0.85fr 1.15fr; }
+.project-card.secondary { grid-template-columns: 1fr 1fr; }
 
 .project-card:hover,
 .project-card:focus-visible {

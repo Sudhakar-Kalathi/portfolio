@@ -122,7 +122,13 @@
       if (!slides.length) return;
       index = (nextIndex + slides.length) % slides.length;
       slides.forEach((slide, i) => {
-        slide.hidden = i !== index;
+        if (i === index) {
+          slide.removeAttribute("hidden");
+          slide.style.display = "block";
+        } else {
+          slide.setAttribute("hidden", "");
+          slide.style.display = "none";
+        }
       });
       if (status) status.textContent = index + 1 + " / " + slides.length;
       if (caption) caption.textContent = captionFromSlide(slides[index]);

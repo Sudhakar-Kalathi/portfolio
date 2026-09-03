@@ -80,6 +80,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .logo {
+  font-size: 22px;
   font-family: var(--mono);
   font-weight: 600;
   color: var(--ink);
@@ -92,7 +93,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -100,9 +101,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .nav-links a {
   text-decoration: none;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  padding: 8px 10px;
+  padding: 8px 12px;
   border-radius: 8px;
   color: var(--ink-soft);
 }
@@ -122,8 +123,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border: 1px solid transparent;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 14px;
-  padding: 11px 18px;
+  font-size: 15px;
+  padding: 12px 20px;
   cursor: pointer;
   font-family: inherit;
   transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
@@ -187,7 +188,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* Hero */
 .hero {
   position: relative;
-  padding: 48px 0 28px;
+  padding: 80px 0 60px;
   overflow: hidden;
 }
 
@@ -212,11 +213,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .kicker {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
@@ -224,7 +225,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   font-size: clamp(42px, 7vw, 76px);
   line-height: 1.02;
   color: var(--ink);
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   letter-spacing: -0.03em;
   font-weight: 600;
 }
@@ -232,7 +233,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero .role {
   font-size: clamp(20px, 3vw, 28px);
   color: var(--ink);
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   font-weight: 500;
 }
 
@@ -243,20 +244,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .lede {
   max-width: 52ch;
-  margin: 0 0 28px;
+  margin: 0 0 32px;
   font-size: 18px;
 }
 
 .cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
 }
 
 .icon-link {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: 50%;
   display: grid;
@@ -297,9 +298,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .cmt { color: #78716c; }
 
 /* Sections */
-section { padding: 28px 0; }
+section { padding: 72px 0; }
 #home { padding-top: 0; }
-#contact { padding-bottom: 40px; }
+#contact { padding-bottom: 72px; }
 
 .section-head {
   display: flex;
